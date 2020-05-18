@@ -28,6 +28,11 @@ with open('testpage.txt','r',encoding='utf-8') as fp:
   tags=re.compile(r'<.+?>(.*?)</.+?>',re.DOTALL)
   text=tags.sub(' ',text)
   
-  
-  
-  
+ #Μετατροπή html entities
+ def entities(m):    #Δημιουργία της function
+    if m.group(0)=='&amp;': return '&'
+    if m.group(0)=='&gt;': return '>'
+    if m.group(0)=='&lt;': return '<'
+    if m.group(0)=='&nbsp;': return ' '
+  html=re.compile(r'&(amp|gt|lt|nbsp);')
+  text=html.sub(entities,text)
