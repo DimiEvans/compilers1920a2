@@ -17,8 +17,8 @@ with open('testpage.txt','r',encoding='utf-8') as fp:
   text=reComment.sub(' ',text)
   
  #Διαγραφή script και style
-  ScriptStyle=re.compile(r'<script(.*?)</script>|style='(.*?),re.DOTALL)
-  text=ScriptStyle.sub(' ',text)
+  scriptstyle=re.compile(r'<script(.*?)</script>|style='(.*?),re.DOTALL)
+  text=scriptstyle.sub(' ',text)
  
  #Ιδιότητα href
   href=re.compile(r'<a.+?href="(.*?)".*?>(.*?)</a>',re.DOTALL)
