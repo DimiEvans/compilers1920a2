@@ -8,13 +8,13 @@ with open('testpage.txt','r',encoding='utf-8') as fp:
  text=fp.read()
 
 #εξαγωγή και εκτύπωση των τίτλων
-  reTitle=re.compile('<title>(.+?)</title>')
-  title=re.findall(reTitle,text)
+  retitle=re.compile('<title>(.+?)</title>')
+  title=re.findall(retitle,text)
   print(title)
   
  #Διαγραφή σχολίων
-  reComment=re.compile('<!--(.*?)-->',re.DOTALL)
-  text=reComment.sub(' ',text)
+  recomment=re.compile('<!--(.*?)-->',re.DOTALL)
+  text=recomment.sub(' ',text)
   
  #Διαγραφή script και style
   scriptstyle=re.compile(r'<script(.*?)</script>|style='(.*?),re.DOTALL)
