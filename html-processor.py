@@ -36,3 +36,10 @@ with open('testpage.txt','r',encoding='utf-8') as fp:
     if m.group(0)=='&nbsp;': return ' '
   html=re.compile(r'&(amp|gt|lt|nbsp);')
   text=html.sub(entities,text)
+
+  #Αναγνώριση και μετατροπή συνεχόμενων whitespace σε 1 κενό
+   whitespace=re.compile(r'\s+')
+   text=whitespace.sub(' ',text)
+   
+  #Εκτύπωση του αλλαγμένου κειμένου
+   print(text)
